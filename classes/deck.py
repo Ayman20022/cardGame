@@ -1,27 +1,27 @@
-from card import Card
+from classes.card import Card
 import random as rd
 
 
 class Deck:
-    cards=[]
     def __init__(self) -> None:
+        self.cards=[]
         for suit in Card.suits:
             for rank in Card.ranks:
-                Deck.cards.append(Card(suit=suit,rank=rank))
+                self.cards.append(Card(suit=suit,rank=rank))
     
     def __str__(self):
         str_cards=''
-        for card in Deck.cards:
+        for card in self.cards:
             str_cards+='['
             str_cards+=str(card)
             str_cards+='],'
         return str_cards
     
-    def add_card(card):
-        Deck.cards.append(card)
+    def add_card(self,card):
+        self.cards.append(card)
     def shuffle(self):
-        rd.shuffle(Deck.cards)
+        rd.shuffle(self.cards)
     def pop_card(self):
-        return Deck.cards.pop(-1)
+        return self.cards.pop(0)
 
         
